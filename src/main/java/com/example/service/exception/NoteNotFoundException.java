@@ -1,7 +1,5 @@
 package com.example.service.exception;
 
-import java.util.UUID;
-
 public class NoteNotFoundException extends Throwable {
 
     private static final String NOTE_NOT_FOUND_EXCEPTION_TEXT = "Note with id = %s not found.";
@@ -11,7 +9,7 @@ public class NoteNotFoundException extends Throwable {
         super(CAN_NOT_UPDATE_NOTE_WITHOUT_ID_EXCEPTION_TEXT);
     }
 
-    public NoteNotFoundException(UUID noteId) {
+    public NoteNotFoundException(Long noteId) {
         super(String.format(NOTE_NOT_FOUND_EXCEPTION_TEXT, noteId));
     }
 }

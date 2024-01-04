@@ -1,15 +1,26 @@
 package com.example.data.entity;
 
-import lombok.*;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import java.util.UUID;
-
-@Data
+@Getter
+@Setter
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(name = "notes")
 public class Note {
 
-    private UUID id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column
     private String title;
+
+    @Column
     private String content;
 }

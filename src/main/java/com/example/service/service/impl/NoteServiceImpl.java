@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.UUID;
 
 @Slf4j
 @Service
@@ -39,7 +38,7 @@ public class NoteServiceImpl implements NoteService {
     }
 
     @Override
-    public NoteDto findById(UUID id) throws NoteNotFoundException {
+    public NoteDto findById(Long id) throws NoteNotFoundException {
         Optional<Note> optionalNote = noteRepository.findById(id);
         if (optionalNote.isPresent()) {
             return noteMapper.toNoteDto(optionalNote.get());
@@ -54,7 +53,7 @@ public class NoteServiceImpl implements NoteService {
     }
 
     @Override
-    public void deleteById(UUID id) throws NoteNotFoundException {
+    public void deleteById(Long id) throws NoteNotFoundException {
         findById(id);
         noteRepository.deleteById(id);
     }

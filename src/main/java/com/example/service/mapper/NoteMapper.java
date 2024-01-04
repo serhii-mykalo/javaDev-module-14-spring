@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Component
@@ -26,6 +25,7 @@ public class NoteMapper {
         note.setId(noteDto.getId());
         note.setTitle(noteDto.getTitle());
         note.setContent(noteDto.getContent());
+
         return note;
     }
 
@@ -40,6 +40,7 @@ public class NoteMapper {
         noteDto.setId(note.getId());
         noteDto.setTitle(note.getTitle());
         noteDto.setContent(note.getContent());
+
         return noteDto;
     }
 
@@ -54,6 +55,7 @@ public class NoteMapper {
         response.setId(noteDto.getId());
         response.setTitle(noteDto.getTitle());
         response.setContent(noteDto.getContent());
+
         return response;
     }
 
@@ -67,14 +69,16 @@ public class NoteMapper {
         NoteDto noteDto = new NoteDto();
         noteDto.setTitle(request.getTitle());
         noteDto.setContent(request.getContent());
+
         return noteDto;
     }
 
-    public NoteDto toNoteDto(UUID id, UpdateNoteRequest request) {
+    public NoteDto toNoteDto(Long id, UpdateNoteRequest request) {
         NoteDto noteDto = new NoteDto();
         noteDto.setId(id);
         noteDto.setTitle(request.getTitle());
         noteDto.setContent(request.getContent());
+
         return noteDto;
     }
 }
